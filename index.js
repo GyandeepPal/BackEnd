@@ -40,6 +40,14 @@ app.get("/api", (req, res) => {
   res.json({ a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, name: ["gyan", "Rahul", "pal"] });
 });
 
+
+// slugify("Hello World!", {
+//     lower: true,    // lowercase
+//     strict: true,   // special characters remove
+//     replacement: "-" // spaces ko - se replace
+// });
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
