@@ -7,8 +7,9 @@
   ],
   "license": "ISC",
   "author": "Gyan",
-  "type": "commonjs",
+  "type": "module",
   "main": "server.js",
+ 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,7 +17,7 @@
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "mongoos": "^0.0.1-security",
+    "mongoose": "^9.10.3",
     "slugify": "^1.6.9"
   }
 }
