@@ -13,31 +13,44 @@ const port = 3000;
 // MongoDB connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/GyanGroup")
-  .then(() => {
-    console.log("MongoDB Connected");
-  })
-  .catch((err) => {
-    console.log("MongoDB Error:", err);
-  });
+  // .then(() => {
+  //   console.log("MongoDB Connected");
+  // })
+  // .catch((err) => {
+  //   console.log("MongoDB Error:", err);
+  // });
 
 // EJS
 app.set("view engine", "ejs");
+
 app.set("views", path.join(__dirname, "views"));
+const getRandom = (arr) => {
+  let rno = Math.floor(Math.random() * arr.length);
+  return arr[rno];
+};
 
 // Home
 app.get("/", (req, res) => {
   res.render("question");
 });
+// Clear the collection todo
+
+await Todo.deleteMany({});
 
 // Click
 app.get("/click", async (req, res) => {
+  let name = ["Gyan", "Gourav", "Bhagirth", "Jay Tripathi"]
+  let city = ["Allahabad", "Siwan", "Saliya", "Baliya "]
+  let lang = ["HTML", "JS", "C++", "Java"]
+  
+  
   try {
     for (let index = 0; index < 10; index++) {
       let e = await Todo.create({
-        name: "Gyan",
-        age: 20,
-        city: "Prayagraj",
-        date: new Date()
+        name: getRandom(name),
+        age: Math.floor(Math.random() * 22000),
+        city: getRandom(city),
+        language: getRandom(lang)
       });
 
       console.log(e);
